@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chars Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.27.0/themes/material-oceanic.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .chars-example {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            max-width: 500px; /* Set a maximum width for the code boxes */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chars-header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .chars-content {
+            padding: 10px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            white-space: pre-wrap;
+            font-size: 14px;
+            max-width: 100%; /* Ensure code doesn't overflow horizontally */
+        }
+
+        .copy-button {
+            cursor: pointer;
+            color: #fff;
+            background-color: #2980b9;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            display: block;
+            margin-top: 10px;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+
+        .copy-button:hover {
+            background-color: #1c6382;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chars-example">
+        <div class="chars-header">
+            <h2 style="margin: 0; color: #fff;">Korean Characters</h2>
+        </div>
+        <div class="chars-content">
+            <h3>Hangul</h3>
+            <code id="korean">안녕하세요</code>
+            <button class="copy-button" data-target="korean" onclick="copyToClipboard('korean')">Copy Code</button>
+        </div>
+    </div>
+
+    <div class="chars-example">
+        <div class="chars-header">
+            <h2 style="margin: 0; color: #fff;">Japanese Characters</h2>
+        </div>
+        <div class="chars-content">
+            <h3>Hiragana</h3>
+            <code id="japanese">こんにちは</code>
+            <button class="copy-button" data-target="japanese" onclick="copyToClipboard('japanese')">Copy Code</button>
+        </div>
+    </div>
+    
+    <div class="chars-example">
+        <div class="chars-header">
+            <h2 style="margin: 0; color: #fff;">Arabic Script</h2>
+        </div>
+        <div class="chars-content">
+            <h3>Arabic</h3>
+            <code id="arabic">مرحبا</code>
+            <button class="copy-button" data-target="arabic" onclick="copyToClipboard('arabic')">Copy Code</button>
+        </div>
+    </div>
+
+    <div class="chars-example">
+        <div class="chars-header">
+            <h2 style="margin: 0; color: #fff;">Chinese Characters</h2>
+        </div>
+        <div class="chars-content">
+            <h3>Simplified Chinese</h3>
+            <code id="chinese">你好</code>
+            <button class="copy-button" data-target="chinese" onclick="copyToClipboard('chinese')">Copy Code</button>
+        </div>
+    </div>
+
+    <div class="chars-example">
+        <div class="chars-header">
+            <h2 style="margin: 0; color: #fff;">Devanagari Script</h2>
+        </div>
+        <div class="chars-content">
+            <h3>Hindi</h3>
+            <code id="devanagari">नमस्ते</code>
+            <button class="copy-button" data-target="devanagari" onclick="copyToClipboard('devanagari')">Copy Code</button>
+        </div>
+    </div>
+    
+    <div class="chars-example">
+        <div class="chars-header">
+            <h2 style="margin: 0; color: #fff;">Greek Alphabet</h2>
+        </div>
+        <div class="chars-content">
+            <h3>Greek</h3>
+            <code id="greek">Γειά σου</code>
+            <button class="copy-button" data-target="greek" onclick="copyToClipboard('greek')">Copy Code</button>
+        </div>
+    </div>
+
+    <div class="chars-example">
+        <div class="chars-header">
+            <h2 style="margin: 0; color: #fff;">Cyrillic Characters</h2>
+        </div>
+        <div class="chars-content">
+            <h3>Russian</h3>
+            <code id="cyrillic">Привет</code>
+            <button class="copy-button" data-target="cyrillic" onclick="copyToClipboard('cyrillic')">Copy Code</button>
+        </div>
+    </div>
+    
+
+    
+<!-- Add more examples here following the same structure -->
+
+<script>
+    function copyToClipboard(elementId) {
+        const element = document.getElementById(elementId);
+
+        if (!element) {
+            console.error(`Element with ID '${elementId}' not found.`);
+            return;
+        }
+
+        const textContent = element.textContent.trim();
+
+        if (!textContent) {
+            console.error(`No text content found within '${elementId}'.`);
+            return;
+        }
+
+        const textarea = document.createElement('textarea');
+        textarea.value = textContent;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+
+        // Update the button text to indicate successful copy
+        const copyButton = document.querySelector(`button[data-target="${elementId}"]`);
+        if (copyButton) {
+            copyButton.innerText = 'Copied!';
+
+            // Reset the button text after a short delay (optional)
+            setTimeout(() => {
+                copyButton.innerText = 'Copy Code';
+            }, 2000);
+        } else {
+            console.error(`Button for element with ID '${elementId}' not found.`);
+        }
+    }
+</script>
+
+</body>
+</html>
