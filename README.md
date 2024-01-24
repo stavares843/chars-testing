@@ -11,6 +11,13 @@ This repository contains an HTML file showcasing a comprehensive range of charac
 - Devanagari Script
 - Greek Alphabet
 - Cyrillic Characters
+- Hebrew Characters
+- Thai Characters
+- Amharic Script
+- Tamil Characters
+- Georgian Script
+- Gurmukhi Script (Punjabi)
+- Ethiopic Script
 
 ## How to Use
 
