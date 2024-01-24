@@ -18,6 +18,12 @@ This repository contains an HTML file showcasing a comprehensive range of charac
 - Georgian Script
 - Gurmukhi Script (Punjabi)
 - Ethiopic Script
+- Bengali Script
+- Vietnamese Characters
+- Armenian Alphabet
+- Mongolian Script
+- Khmer Script
+- Lao Script
 
 ## How to Use
 
